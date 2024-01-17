@@ -22,7 +22,7 @@
             
             // Get weather as object:
             const apiKey = `61a08a3f5f24486095b205705230712`;
-            const weather = await getJson(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${cityBox.value}`);
+            const weather = await getJson(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${cityBox.value}`);
             
             // Display weather:
             displayWeather(weather);
@@ -42,19 +42,19 @@
                 // Hiding spinner when data loading:
                 hideSpinnerButton();
 
-                setTimeout(()=>alert("Error: Enter an exact city name (Spell the word correctly)."), 0);
+                setTimeout(()=>alert("Error: Enter an exact city name (Spell the word correctly)."), 100);
                 cityBox.focus();
                 return;
             }
             if (err.message === "Failed to fetch") {
-                alert("Error: Unstable connection.");
+                setTimeout(()=>alert("Error: Unstable connection."), 100);
                 // Hiding spinner when data loading:
                 hideSpinnerButton();
                 cityBox.focus();
                 return;
             }
             
-            alert("Error: " + err.message);
+            setTimeout(()=>alert("Error: " + err.message), 100);
             hideSpinnerButton();
             cityBox.focus();
         }
