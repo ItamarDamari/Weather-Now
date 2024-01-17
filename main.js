@@ -54,7 +54,7 @@
                 return;
             }
             
-            setTimeout(()=>alert("Error: Some error! Please try again." + err.message), 100);
+            setTimeout(()=>alert("Error: Some error! Please try again."), 100);
             hideSpinnerButton();
             cityBox.focus();
         }
